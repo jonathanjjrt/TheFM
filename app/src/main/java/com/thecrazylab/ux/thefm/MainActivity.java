@@ -29,9 +29,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    getSupportFragmentManager().beginTransaction()
-            .add(R.id.main_container,new HypedArtistFragment())
-            .commit();
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_container,new HypedArtistFragment())
+                    .commit();
+        }
+
 
     }
 

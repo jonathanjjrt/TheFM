@@ -18,6 +18,8 @@ import com.thecrazylab.ux.thefm.R;
  */
 public class HypedArtistFragment extends Fragment {
 
+    public static final String LOG_TAG = HypedArtistFragment.class.getName();
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
