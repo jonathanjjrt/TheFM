@@ -3,10 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/hyped_artists_list"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Hola"/>
+        android:layout_height="match_parent">
+
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
