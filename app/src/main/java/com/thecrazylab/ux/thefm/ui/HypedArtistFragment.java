@@ -62,6 +62,7 @@ public class HypedArtistFragment extends Fragment {
 
         mHyppedArtistsList.setLayoutManager(new GridLayoutManager(getActivity(),NUM_COLUMNS));
         mHyppedArtistsList.setAdapter(adapter);
+        mHyppedArtistsList.addItemDecoration(new ItemOffsetDecoration(getActivity(), R.integer.offset));
     }
 
     private void setDummyContent(){
