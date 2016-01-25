@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 
 import com.thecrazylab.ux.thefm.MainActivity;
 import com.thecrazylab.ux.thefm.R;
+import com.thecrazylab.ux.thefm.domain.Artist;
+import com.thecrazylab.ux.thefm.ui.adapter.HypedArtistAdapter;
+
+import java.util.ArrayList;
 
 /**
  * Created by federica on 18/01/16.
@@ -24,6 +28,14 @@ public class HypedArtistFragment extends Fragment {
 
     public static final String LOG_TAG = HypedArtistFragment.class.getName();
     private RecyclerView mHyppedArtistsList;
+    private HypedArtistAdapter adapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        adapter = new HypedArtistAdapter(getActivity());
+
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -41,12 +53,24 @@ public class HypedArtistFragment extends Fragment {
 
         mHyppedArtistsList = (RecyclerView) root.findViewById(R.id.hyped_artists_list);
 
-
+        setupHypedArtistList();
+        setDummyContent();
         return root;
     }
 
     private void setupHypedArtistList(){
 
         mHyppedArtistsList.setLayoutManager(new GridLayoutManager(getActivity(),NUM_COLUMNS));
+        mHyppedArtistsList.setAdapter(adapter);
+    }
+
+    private void setDummyContent(){
+
+        ArrayList<Artist> artist = new ArrayList<>();
+        for(int i= 0; i < 10; i++ ){
+            artist.add(new Artist("Artist" + i));
+        }
+
+        adapter.addAll(artist);
     }
 }

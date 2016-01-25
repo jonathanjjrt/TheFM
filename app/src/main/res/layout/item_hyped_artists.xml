@@ -28,7 +28,8 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/color_text_primary"
-            android:text="Daft Punk"/>
+            android:text="Daft Punk"
+            android:id="@+id/txt_name"/>
 
     </FrameLayout>
 
