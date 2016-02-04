@@ -15,14 +15,21 @@ import android.view.ViewGroup;
 import com.thecrazylab.ux.thefm.MainActivity;
 import com.thecrazylab.ux.thefm.R;
 import com.thecrazylab.ux.thefm.domain.Artist;
+import com.thecrazylab.ux.thefm.io.LastFmApiAdapter;
+import com.thecrazylab.ux.thefm.io.LastFmApiService;
+import com.thecrazylab.ux.thefm.io.model.HypedArtistModelResponse;
 import com.thecrazylab.ux.thefm.ui.adapter.HypedArtistAdapter;
 
 import java.util.ArrayList;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 /**
  * Created by federica on 18/01/16.
  */
-public class HypedArtistFragment extends Fragment {
+public class HypedArtistFragment extends Fragment implements Callback<HypedArtistModelResponse> {
 
     public static final int NUM_COLUMNS = 2;
 
@@ -45,6 +52,13 @@ public class HypedArtistFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        LastFmApiAdapter.getApiService()
+                .getHypedArtists(this);
+
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,5 +87,15 @@ public class HypedArtistFragment extends Fragment {
         }
 
         adapter.addAll(artist);
+    }
+
+    @Override
+    public void success(HypedArtistModelResponse hypedArtistModelResponse, Response response) {
+        
+    }
+
+    @Override
+    public void failure(RetrofitError error) {
+
     }
 }
