@@ -12,6 +12,11 @@ public class HypedArtistModelResponse {
     @SerializedName(JasonKeys.ARTIST_RESULT)
     HypedArtistResults results;
 
+    public ArrayList<Artist> getArtist(){
+
+        return results.artists;
+    }
+
     public class HypedArtistResults{
 
         @SerializedName(JasonKeys.ARTIST_ARRAY)

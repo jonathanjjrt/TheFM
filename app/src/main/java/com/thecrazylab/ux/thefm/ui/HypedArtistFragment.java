@@ -68,7 +68,7 @@ public class HypedArtistFragment extends Fragment implements Callback<HypedArtis
         mHyppedArtistsList = (RecyclerView) root.findViewById(R.id.hyped_artists_list);
 
         setupHypedArtistList();
-        setDummyContent();
+        //setDummyContent();
         return root;
     }
 
@@ -91,11 +91,11 @@ public class HypedArtistFragment extends Fragment implements Callback<HypedArtis
 
     @Override
     public void success(HypedArtistModelResponse hypedArtistModelResponse, Response response) {
-        
+          adapter.addAll(hypedArtistModelResponse.getArtist());
     }
 
     @Override
     public void failure(RetrofitError error) {
-
+           error.printStackTrace();
     }
 }
