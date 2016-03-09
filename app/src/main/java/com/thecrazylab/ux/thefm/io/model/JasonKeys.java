@@ -5,6 +5,6 @@ package com.thecrazylab.ux.thefm.io.model;
  */
 public class JasonKeys {
 
-    public static final String ARTIST_RESULT = "Artists";
-    public static final String ARTIST_ARRAY = "Artist";
+    public static final String ARTIST_RESULT = "artists";
+    public static final String ARTIST_ARRAY = "artist";
 }
